@@ -120,7 +120,7 @@
   }
 }
 
-@theme inline {
+@layer utilities {
   @keyframes aurora {
   0% {
     backgroundPosition: 0% 50%;

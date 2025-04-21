@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { AuroraText as ImportedAuroraText } from '@/components/magicui/aurora-text';
 
 
@@ -9,10 +10,12 @@ const Navbar: React.FC = () => {
     <nav className="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-white to-black shadow-md">
       <div className="flex items-center">
       <Link href="/">
-        <img
-        src="/AVATAQ.svg"
-        alt="Logo"
-        className="w-20 h-20 cursor-pointer"
+        <Image
+          src="/AVATAQ.svg"
+          alt="Logo"
+          width={80}
+          height={80}
+          className="cursor-pointer"
         />
       </Link>
       </div>
@@ -36,7 +39,7 @@ const Navbar: React.FC = () => {
         Get Started for Free
       </Link>
       </div>
-    </nav>
+  </nav>
   );
 };
 const MainTitle: React.FC = () => {
@@ -55,7 +58,7 @@ const MainTitle: React.FC = () => {
 export { MainTitle };
 
 interface AuroraTextProps {
-  text: string;
+  text: React.ReactNode;
   className?: string;
 }
 
@@ -77,7 +80,5 @@ const Page: React.FC = () => {
     </>
   );
 };
-
 export default Page;
-
 
