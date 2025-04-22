@@ -1,13 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AuroraText as ImportedAuroraText } from '@/components/magicui/aurora-text';
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+
 
 
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-white to-black shadow-md">
+    <nav className="flex items-center justify-between px-4 py-2 bg-gradient-to-r to-black shadow-md">
       <div className="flex items-center">
       <Link href="/">
         <Image
@@ -19,18 +21,21 @@ const Navbar: React.FC = () => {
         />
       </Link>
       </div>
-      <div className="flex items-center space-x-4 text-white">
-      <Link href="/features" className="hover:text-gray-300">
+      <div className="flex items-center space-x-9 text-white">
+      <Link href="/Home" className="hover:text-gray-300">
+        Home
+      </Link>
+      <Link href="/Features" className="hover:text-gray-300">
         Features
       </Link>
-      <Link href="/pricing" className="hover:text-gray-300">
-        Pricing
-      </Link>
-      <Link href="/blogs" className="hover:text-gray-300">
-        Blogs
+      <Link href="/Pricing" className="hover:text-gray-300">
+        Pricing 
       </Link>
       <Link href="/signin" className="hover:text-gray-300">
         Sign In
+      </Link>
+      <Link href="/Howitworks" className="hover:text-gray-300">
+        How it works 
       </Link>
       <Link
         href="/get-started"
@@ -38,45 +43,37 @@ const Navbar: React.FC = () => {
       >
         Get Started for Free
       </Link>
+      
       </div>
   </nav>
   );
 };
-const MainTitle: React.FC = () => {
-  return (
-    <div className="text-center mt-10">
-      <h1 className="text-6xl font-extrabold bg-gradient-to-r from-black to-white text-transparent bg-clip-text text-center mb-4">
-        Welcome to AVATAQ-AI
-      </h1>
-      <p className="text-lg font-semibold bg-gradient-to-r from-black to-white text-transparent bg-clip-text mt-4">
-        Your journey starts here with the new era of Agentic AI
-      </p>
-    </div>
-  );
-};
-
-export { MainTitle };
-
-interface AuroraTextProps {
-  text: React.ReactNode;
-  className?: string;
-}
-
-const LocalAuroraText: React.FC<AuroraTextProps> = ({ text, className }) => {
-  return (
-    <div className={`flex justify-center mt-6 ${className}`}>
-      {text}
-    </div>
-  );
-};
 
 export { Navbar };
-export { LocalAuroraText, ImportedAuroraText };
+
+
 const Page: React.FC = () => {
   return (
     <>
+      
+      <div className="bg-black min-h-screen">
       <Navbar />
-      <MainTitle />
+      <TypewriterEffect
+        words={[
+        { text: "Empowering" },
+        { text: "Agentic" },
+        { text: "AI" },
+        { text: "for" },
+        { text: "Everyone" },
+        ]}
+        className="mt-8 text-white"
+        cursorClassName="bg-white" // or customize as needed
+      />
+      <div className="flex justify-center mt-9">
+        <InteractiveHoverButton> Know More </InteractiveHoverButton>
+      </div>
+      </div>
+      
     </>
   );
 };
